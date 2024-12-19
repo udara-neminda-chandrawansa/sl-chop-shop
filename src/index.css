@@ -11,6 +11,10 @@
   font-weight: 300;
 }
 
+body{
+  background-color:  #EAEAEAA1;
+}
+
 .akatab{
   font-family: "Akatab", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
