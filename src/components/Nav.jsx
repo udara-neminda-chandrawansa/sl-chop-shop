@@ -1,5 +1,4 @@
 import { Link } from "wouter";
-import burger from "./../assets/burger.svg";
 import logo from "/logo.png";
 
 import wa from "./../assets/Nav/social/whatsapp.png";

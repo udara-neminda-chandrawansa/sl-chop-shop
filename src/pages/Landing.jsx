@@ -3,17 +3,21 @@ import ScrollAnimation from "react-animate-on-scroll";
 import EventCard from "../components/EventCard";
 import StarRating from "../components/StarRating";
 
+import logo from "/logo.png";
 import banner from "./../assets/Landing/banner_1.png";
 import service_1 from "./../assets/Services/service_1.png";
 import vwbeetle from "./../assets/Landing/vwbeetle.png";
 import car_1 from "./../assets/Landing/car-1.png";
 import events_robot from "./../assets/Landing/events-robot.png";
 import event_1 from "./../assets/Events/event-1.png";
+
 import map from "./../assets/Contact/map.png";
 import email from "./../assets/Contact/email.png";
 import location from "./../assets/Contact/location.png";
 import call from "./../assets/Contact/call.png";
+
 import faq_bg from "./../assets/Landing/faq_bg.png";
+
 import client_1 from "./../assets/Feedback/clients/client-1.png";
 import client_2 from "./../assets/Feedback/clients/client-2.png";
 import client_3 from "./../assets/Feedback/clients/client-3.png";
@@ -295,28 +299,28 @@ function Landing() {
           </div>
           {/*bottom (cards)*/}
           <div className="grid grid-cols-4 gap-6 p-12 w-fit max-sm:w-full place-items-center max-md:p-6 max-md:grid-cols-2 max-sm:grid-cols-1">
-            <ScrollAnimation animateIn="flip">
+            <ScrollAnimation animateIn="wobble">
               <EventCard
                 text={"2024 31 Night"}
                 url={"31-night"}
                 img={event_1}
               ></EventCard>
             </ScrollAnimation>
-            <ScrollAnimation animateIn="flip" delay={100}>
+            <ScrollAnimation animateIn="wobble" delay={100}>
               <EventCard
                 text={"2024 31 Night"}
                 url={"31-night"}
                 img={event_1}
               ></EventCard>
             </ScrollAnimation>
-            <ScrollAnimation animateIn="flip" delay={200}>
+            <ScrollAnimation animateIn="wobble" delay={200}>
               <EventCard
                 text={"2024 31 Night"}
                 url={"31-night"}
                 img={event_1}
               ></EventCard>
             </ScrollAnimation>
-            <ScrollAnimation animateIn="flip" delay={300}>
+            <ScrollAnimation animateIn="wobble" delay={300}>
               <EventCard
                 text={"2024 31 Night"}
                 url={"31-night"}
@@ -719,6 +723,23 @@ function Landing() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      {/*logo section*/}
+      <div className="flex flex-col items-center justify-center gap-6 px-12 py-6 h-fit max-md:px-6">
+        <ScrollAnimation animateIn="wobble">
+          <img src={logo} alt="" />
+        </ScrollAnimation>
+        <div className="inline-flex">
+          <h1 className="text-5xl text-center preahvihear max-md:text-3xl max-sm:text-xl">
+            <span className="pontano text-8xl text-[#F6CE15] max-md:text-5xl max-sm:text-3xl">
+              “
+            </span>
+            SL Chop Shop – Where Precision Meets Performance!
+            <span className="pontano text-8xl text-[#F6CE15] max-md:text-5xl max-sm:text-3xl">
+              ”
+            </span>
+          </h1>
         </div>
       </div>
     </div>
