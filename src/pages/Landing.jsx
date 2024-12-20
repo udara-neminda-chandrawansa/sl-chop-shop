@@ -593,7 +593,7 @@ function Landing() {
                     </div>
                   ))}
                 </div>
-                
+
                 <div className="flex items-center md:sticky bottom-5 justify-evenly max-md:justify-center">
                   {/*buttons on bottom*/}
                   <button
@@ -613,8 +613,8 @@ function Landing() {
                     </svg>
                   </button>
                   <button
-                    data-modal-target="default-modal"
-                    data-modal-toggle="default-modal"
+                    data-coreui-toggle="modal"
+                    data-coreui-target="#exampleModal"
                     className="md:absolute px-4 py-2 text-sm bg-[#334462] text-white rounded-lg right-5"
                   >
                     Add your feedback
@@ -628,38 +628,21 @@ function Landing() {
       </ScrollAnimation>
       {/*Modal for Adding Feedbacks*/}
       <div
-        id="default-modal"
-        tabIndex="-1"
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
         aria-hidden="true"
-        className="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
       >
-        <div className="relative w-full max-w-2xl max-h-full p-4">
-          {/*Modal content*/}
-          <div className="relative bg-white rounded-lg shadow">
-            {/*Modal header*/}
-            <div className="flex items-center justify-between p-1 border-b rounded-t md:p-5">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
               <button
                 type="button"
-                className="inline-flex items-center justify-center w-8 h-8 text-sm text-gray-400 bg-transparent rounded-lg hover:bg-gray-200 hover:text-gray-900 ms-auto"
-                data-modal-hide="default-modal"
-              >
-                <svg
-                  className="w-3 h-3"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 14 14"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                  />
-                </svg>
-                <span className="sr-only">Close modal</span>
-              </button>
+                class="btn-close"
+                data-coreui-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
             {/*Modal body*/}
             <div className="p-4 space-y-4 md:p-5">
@@ -682,7 +665,13 @@ function Landing() {
                     ></img>
                   </label>
                   <div className="block">
-                    <label htmlFor="img-selecter" className="text-sm font-semibold "> Your company logo</label>
+                    <label
+                      htmlFor="img-selecter"
+                      className="text-sm font-semibold "
+                    >
+                      {" "}
+                      Your company logo
+                    </label>
                   </div>
                 </div>
                 <div>
@@ -723,7 +712,9 @@ function Landing() {
                   </div>
                 </div>
                 <div className="flex justify-center w-full">
-                  <button className=" px-4 py-2 text-sm bg-[#334462] text-white rounded-lg">Submit</button>
+                  <button className=" px-4 py-2 text-sm bg-[#334462] text-white rounded-lg">
+                    Submit
+                  </button>
                 </div>
               </div>
             </div>
