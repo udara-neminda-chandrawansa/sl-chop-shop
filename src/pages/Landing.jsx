@@ -1,9 +1,17 @@
 import { useState, useEffect } from "react";
 import ScrollAnimation from "react-animate-on-scroll";
+import EventCard from "../components/EventCard";
+
 import banner from "./../assets/Landing/banner_1.png";
 import service_1 from "./../assets/Services/service_1.png";
 import vwbeetle from "./../assets/Landing/vwbeetle.png";
 import car_1 from "./../assets/Landing/car-1.png";
+import events_robot from "./../assets/Landing/events-robot.png";
+import event_1 from "./../assets/Events/event-1.png";
+import map from "./../assets/Contact/map.png";
+import email from "./../assets/Contact/email.png";
+import location from "./../assets/Contact/location.png";
+import call from "./../assets/Contact/call.png";
 
 function Landing() {
   const [selectedService, setSelectedService] = useState(0);
@@ -150,8 +158,8 @@ function Landing() {
       </ScrollAnimation>
       {/*spacing div*/}
       <div className="xl:h-[30dvh]"></div>
+      {/*carousel*/}
       <ScrollAnimation animateIn="fadeIn">
-        {/*carousel*/}
         <div
           className="flex flex-col xl:h-[60dvh] justify-end items-center relative"
           style={{ backgroundImage: `url(${carouselImages[currentBanner]})` }}
@@ -201,6 +209,99 @@ function Landing() {
               }`}
             ></span>
           </div>
+        </div>
+      </ScrollAnimation>
+      {/*Events*/}
+      <ScrollAnimation animateIn="fadeIn">
+        <div className="flex flex-col px-12 py-6 h-fit max-md:px-6">
+          {/*top*/}
+          <div className="flex items-center h-1/2 max-sm:flex-col">
+            <div className="sm:w-1/3">
+              <ScrollAnimation animateIn="bounce">
+                <img src={events_robot} alt="events-robot" />
+              </ScrollAnimation>
+            </div>
+            <div className="flex flex-col gap-3 sm:w-2/3">
+              <h1 className="text-5xl font-bold text-[#F6CE15]">Events</h1>
+              <p className="text-justify lh-lg">
+                At SL Chop Shop, we believe in bringing car enthusiasts and the
+                community together through exciting events! From car meets to
+                workshops, we host a variety of activities that celebrate a
+                shared passion for automobiles.together through exciting events!
+                From car meets to workshops, we host a variety of activities
+                that celebrate a shared passion for automobiles.
+              </p>
+            </div>
+          </div>
+          {/*bottom (cards)*/}
+          <div className="grid grid-cols-4 gap-6 p-12 w-fit max-sm:w-full place-items-center max-md:p-6 max-md:grid-cols-2 max-sm:grid-cols-1">
+            <ScrollAnimation animateIn="flip">
+              <EventCard
+                text={"2024 31 Night"}
+                url={"31-night"}
+                img={event_1}
+              ></EventCard>
+            </ScrollAnimation>
+            <ScrollAnimation animateIn="flip" delay={100}>
+              <EventCard
+                text={"2024 31 Night"}
+                url={"31-night"}
+                img={event_1}
+              ></EventCard>
+            </ScrollAnimation>
+            <ScrollAnimation animateIn="flip" delay={200}>
+              <EventCard
+                text={"2024 31 Night"}
+                url={"31-night"}
+                img={event_1}
+              ></EventCard>
+            </ScrollAnimation>
+            <ScrollAnimation animateIn="flip" delay={300}>
+              <EventCard
+                text={"2024 31 Night"}
+                url={"31-night"}
+                img={event_1}
+              ></EventCard>
+            </ScrollAnimation>
+          </div>
+        </div>
+      </ScrollAnimation>
+      {/*Contact*/}
+      <ScrollAnimation animateIn="fadeIn">
+        <div className="flex flex-col gap-6 px-12 py-6 h-fit max-md:px-6">
+          <h1 className="text-5xl text-center">Contact Us</h1>
+          <img src={map} alt="map" />
+          {/*contact us*/}
+          <div className="bg-[#00000008] py-6 px-12 max-md:px-6 flex justify-center gap-12 max-lg:flex-col text-center">
+            <div className="flex flex-col items-center justify-center lg:w-1/3">
+              <ScrollAnimation animateIn="wobble">
+                <img src={email} alt="" />
+              </ScrollAnimation>
+              <p>hello@SLCHOPSHOP.com</p>
+            </div>
+            <div className="flex flex-col items-center justify-center lg:w-1/3">
+              <ScrollAnimation animateIn="wobble">
+                <img src={location} alt="" />
+              </ScrollAnimation>
+              <p> SL Chop shop, Katugasthota, Kandy, Sri lanka, 21120</p>
+            </div>
+            <div className="flex flex-col items-center justify-center lg:w-1/3">
+              <ScrollAnimation animateIn="wobble">
+                <img src={call} alt="" />
+              </ScrollAnimation>
+              <p>+94 77 976 7127</p>
+            </div>
+          </div>
+          <span className="flex flex-col items-center justify-center gap-6">
+            <p className="text-center md:w-2/3 lh-lg">
+              We’d love to hear from you! Whether you have a question, need a
+              consultation, or want to schedule a fitting, the team at SL Chop
+              Shop is here to assist you.
+            </p>
+            <button className="rounded-lg bg-[#334462] px-6 py-3 text-white hover:scale-90 transition-all">
+              Contact Us
+            </button>
+          </span>
         </div>
       </ScrollAnimation>
     </div>
