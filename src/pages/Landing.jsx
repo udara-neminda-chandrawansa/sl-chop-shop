@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 import EventCard from "../components/EventCard";
+import StarRating from "../components/StarRating";
 
 import banner from "./../assets/Landing/banner_1.png";
 import service_1 from "./../assets/Services/service_1.png";
@@ -12,11 +13,69 @@ import map from "./../assets/Contact/map.png";
 import email from "./../assets/Contact/email.png";
 import location from "./../assets/Contact/location.png";
 import call from "./../assets/Contact/call.png";
+import faq_bg from "./../assets/Landing/faq_bg.png";
+import client_1 from "./../assets/Feedback/clients/client-1.png";
+import client_2 from "./../assets/Feedback/clients/client-2.png";
+import client_3 from "./../assets/Feedback/clients/client-3.png";
+import client_4 from "./../assets/Feedback/clients/client-4.png";
+import feedbackBanner from "./../assets/Feedback/feedbackBanner.png";
+import camera_icon from "./../assets/Feedback/camera_icon.png";
 
 function Landing() {
   const [selectedService, setSelectedService] = useState(0);
   const carouselImages = [car_1, car_1, car_1];
   const [currentBanner, setCurrentBanner] = useState(0); // initialize current banner
+
+  //
+  // ** for feedback section
+  //
+
+  const feedbacks = [
+    [
+      client_1,
+      "Company 1",
+      5,
+      "Silicon Radon Networks is a standout IT company known for its innovative solutions, technical expertise, and strong customer focus. The company consistently demonstrates a commitment to delivering cutting-edge network and IT services, meeting client needs with high levels of efficiency and reliability. Their skilled team effectively handles complex challenges, building trust through the timely and high-quality execution of projects. However, there is room for improvement in enhancing communication channels to ensure consistent responsiveness throughout project phases, and expanding their service offerings to support scalability would help meet diverse industry demands. Overall, Silicon Radon Networks’ dedication to excellence and customer-centric approach positions it as a trusted partner in the IT industry.",
+    ],
+    [
+      client_2,
+      "Company 2",
+      5,
+      "Silicon Radon Networks is a standout IT company known for its innovative solutions, technical expertise, and strong customer focus. The company consistently demonstrates a commitment to delivering cutting-edge network and IT services, meeting client needs with high levels of efficiency and reliability. Their skilled team effectively handles complex challenges, building trust through the timely and high-quality execution of projects. However, there is room for improvement in enhancing communication channels to ensure consistent responsiveness throughout project phases, and expanding their service offerings to support scalability would help meet diverse industry demands. Overall, Silicon Radon Networks’ dedication to excellence and customer-centric approach positions it as a trusted partner in the IT industry.",
+    ],
+    [
+      client_3,
+      "Company 3",
+      5,
+      "Silicon Radon Networks is a standout IT company known for its innovative solutions, technical expertise, and strong customer focus. The company consistently demonstrates a commitment to delivering cutting-edge network and IT services, meeting client needs with high levels of efficiency and reliability. Their skilled team effectively handles complex challenges, building trust through the timely and high-quality execution of projects. However, there is room for improvement in enhancing communication channels to ensure consistent responsiveness throughout project phases, and expanding their service offerings to support scalability would help meet diverse industry demands. Overall, Silicon Radon Networks’ dedication to excellence and customer-centric approach positions it as a trusted partner in the IT industry.",
+    ],
+    [
+      client_4,
+      "Company 4",
+      5,
+      "Silicon Radon Networks is a standout IT company known for its innovative solutions, technical expertise, and strong customer focus. The company consistently demonstrates a commitment to delivering cutting-edge network and IT services, meeting client needs with high levels of efficiency and reliability. Their skilled team effectively handles complex challenges, building trust through the timely and high-quality execution of projects. However, there is room for improvement in enhancing communication channels to ensure consistent responsiveness throughout project phases, and expanding their service offerings to support scalability would help meet diverse industry demands. Overall, Silicon Radon Networks’ dedication to excellence and customer-centric approach positions it as a trusted partner in the IT industry.",
+    ],
+  ];
+
+  const feedbackEnd = useRef(null); // reference of 'feedback' right side div
+
+  const scrollDown = () => {
+    // scroll to end of the 'feedback-scrollable' div
+    document.getElementById("feedback-scrollable").scrollTo({
+      top: feedbackEnd.current.offsetTop,
+      behavior: "smooth",
+    });
+  };
+
+  const [rating, setRating] = useState(0); // number of stars given by user
+
+  const handleRatingChange = (newRating) => {
+    setRating(newRating); // Capture the rating from StarRating
+  };
+
+  //
+  // ** for carousel
+  //
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -55,7 +114,7 @@ function Landing() {
         </div>
       </div>
       {/*Services*/}
-      <div className="z-10 flex items-center justify-center h-fit max-md:p-6">
+      <div className="z-10 flex items-center justify-center h-fit max-md:p-6 bg-[#EAEAEAA1]">
         <div className="z-10 flex flex-col w-3/4 h-full bg-white rounded-lg md:-translate-y-16 max-md:w-full">
           {/*top*/}
           <div className="flex items-center w-full p-6 justify-evenly max-md:flex-col max-md:gap-3">
@@ -131,9 +190,10 @@ function Landing() {
       </div>
       {/*Welcome*/}
       <ScrollAnimation animateIn="fadeIn">
-        <div className="h-[50dvh] bg-[#F6CE15] flex p-6 max-lg:flex-col max-lg:h-fit">
+        <div className="h-[50dvh] bg-[#F6CE15] flex p-6 max-lg:flex-col max-lg:h-fit relative">
+          <div className="absolute bottom-0 right-0 w-2/3 h-full bg-white rounded-tl-full max-lg:hidden"></div>
           <div className="lg:w-1/2">
-            <p className="text-left lg:w-1/2 lg:absolute lh-lg max-xl:text-justify">
+            <p className="text-left lg:w-1/2 lg:absolute lh-lg max-xl:text-justify max-md:text-sm">
               Welcome to SL Chop Shop, your trusted destination for professional
               car repair and maintenance services. With years of experience and
               a passion for automobiles, we are dedicated to keeping your
@@ -166,7 +226,7 @@ function Landing() {
         >
           <div className="bg-[#000000D4] h-full absolute xl:-top-[10dvh] max-xl:relative max-xl:w-full xl:w-5/6 flex justify-center items-end flex-col p-6">
             <ScrollAnimation animateIn="headShake">
-              <p className="text-justify text-white lh-lg">
+              <p className="text-justify text-white lh-lg max-md:text-sm">
                 Welcome to SL Chop Shop, your trusted destination for
                 professional car repair and maintenance services. With years of
                 experience and a passion for automobiles, we are dedicated to
@@ -187,7 +247,7 @@ function Landing() {
                 every job is done right the first time.
               </p>
             </ScrollAnimation>
-            <p className="text-justify text-[#F6CE15] lh-lg w-fit">
+            <p className="text-justify text-[#F6CE15] lh-lg w-fit max-md:text-sm">
               M.R Mudhitha Bandara
             </p>
           </div>
@@ -223,7 +283,7 @@ function Landing() {
             </div>
             <div className="flex flex-col gap-3 sm:w-2/3">
               <h1 className="text-5xl font-bold text-[#F6CE15]">Events</h1>
-              <p className="text-justify lh-lg">
+              <p className="text-justify lh-lg max-md:text-sm">
                 At SL Chop Shop, we believe in bringing car enthusiasts and the
                 community together through exciting events! From car meets to
                 workshops, we host a variety of activities that celebrate a
@@ -293,7 +353,7 @@ function Landing() {
             </div>
           </div>
           <span className="flex flex-col items-center justify-center gap-6">
-            <p className="text-center md:w-2/3 lh-lg">
+            <p className="text-center md:w-2/3 lh-lg max-md:text-sm">
               We’d love to hear from you! Whether you have a question, need a
               consultation, or want to schedule a fitting, the team at SL Chop
               Shop is here to assist you.
@@ -304,6 +364,372 @@ function Landing() {
           </span>
         </div>
       </ScrollAnimation>
+      {/*FAQs*/}
+      <ScrollAnimation animateIn="fadeIn">
+        <div
+          className="flex p-12 text-white max-md:p-6 max-lg:flex-col max-lg:gap-6"
+          style={{ backgroundImage: `url(${faq_bg})` }}
+        >
+          <div className="flex flex-col gap-6 lg:w-1/3">
+            <h1 className="font-bold text-8xl">FAQs</h1>
+            <p className="text-justify lh-lg max-md:text-sm">
+              FAQs Welcome to the SL Chop Shop FAQs page! Here, you'll find
+              answers to common questions about our services, pricing,
+              appointments, and more. Whether you’re curious about our repair
+              process or need details about warranties, we’ve got you covered.
+              If you don’t see your question here, feel free to contact us
+              directly! FAQs Welcome to the SL Chop Shop FAQs page! Here, you'll
+              find answers to common questions about our services, pricing,
+              appointments, and more. Whether you’re curious about our repair
+              process or need details about warranties, we’ve got you covered.
+              If you don’t see your question here,{" "}
+            </p>
+          </div>
+          <div className="lg:p-3 lg:w-2/3">
+            <div className="space-y-4 max-md:text-sm">
+              <details className="group bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer items-center justify-between gap-1.5">
+                  <h2 className="text-lg font-medium text-gray-900">
+                    What types of vehicles does SL Chop Shop service?
+                  </h2>
+
+                  <span className="shrink-0 rounded-full bg-[#F6CE15] p-1.5 text-white sm:p-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="transition duration-300 size-5 shrink-0 group-open:-rotate-45"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </summary>
+
+                <p className="mt-4 leading-relaxed text-justify text-gray-700">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab
+                  hic veritatis molestias culpa in, recusandae laboriosam neque
+                  aliquid libero nesciunt voluptate dicta quo officiis explicabo
+                  consequuntur distinctio corporis earum similique!
+                </p>
+              </details>
+              <details className="group bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer items-center justify-between gap-1.5">
+                  <h2 className="text-lg font-medium text-gray-900">
+                    Do I need an appointment, or do you accept walk-ins?
+                  </h2>
+
+                  <span className="shrink-0 rounded-full bg-[#F6CE15] p-1.5 text-white sm:p-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="transition duration-300 size-5 shrink-0 group-open:-rotate-45"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </summary>
+
+                <p className="mt-4 leading-relaxed text-justify text-gray-700">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab
+                  hic veritatis molestias culpa in, recusandae laboriosam neque
+                  aliquid libero nesciunt voluptate dicta quo officiis explicabo
+                  consequuntur distinctio corporis earum similique!
+                </p>
+              </details>
+              <details className="group bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer items-center justify-between gap-1.5">
+                  <h2 className="text-lg font-medium text-gray-900">
+                    What services does SL Chop Shop provide?
+                  </h2>
+
+                  <span className="shrink-0 rounded-full bg-[#F6CE15] p-1.5 text-white sm:p-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="transition duration-300 size-5 shrink-0 group-open:-rotate-45"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </summary>
+
+                <p className="mt-4 leading-relaxed text-justify text-gray-700">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab
+                  hic veritatis molestias culpa in, recusandae laboriosam neque
+                  aliquid libero nesciunt voluptate dicta quo officiis explicabo
+                  consequuntur distinctio corporis earum similique!
+                </p>
+              </details>
+              <details className="group bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer items-center justify-between gap-1.5">
+                  <h2 className="text-lg font-medium text-gray-900">
+                    How long does it take to complete a repair or service?
+                  </h2>
+
+                  <span className="shrink-0 rounded-full bg-[#F6CE15] p-1.5 text-white sm:p-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="transition duration-300 size-5 shrink-0 group-open:-rotate-45"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </summary>
+
+                <p className="mt-4 leading-relaxed text-justify text-gray-700">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab
+                  hic veritatis molestias culpa in, recusandae laboriosam neque
+                  aliquid libero nesciunt voluptate dicta quo officiis explicabo
+                  consequuntur distinctio corporis earum similique!
+                </p>
+              </details>
+              <details className="group bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer items-center justify-between gap-1.5">
+                  <h2 className="text-lg font-medium text-gray-900">
+                    Can you provide a cost estimate before starting any work?
+                  </h2>
+
+                  <span className="shrink-0 rounded-full bg-[#F6CE15] p-1.5 text-white sm:p-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="transition duration-300 size-5 shrink-0 group-open:-rotate-45"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </summary>
+
+                <p className="mt-4 leading-relaxed text-justify text-gray-700">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab
+                  hic veritatis molestias culpa in, recusandae laboriosam neque
+                  aliquid libero nesciunt voluptate dicta quo officiis explicabo
+                  consequuntur distinctio corporis earum similique!
+                </p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </ScrollAnimation>
+      {/*feedbacks*/}
+      <ScrollAnimation animateIn="fadeIn">
+        <div className="py-6 flex flex-col justify-center items-center max-md:h-fit md:h-[800px]">
+          <div className="flex w-full h-full">
+            <div
+              className="bg-center bg-cover md:w-1/5 max-md:hidden"
+              style={{ backgroundImage: `url(${feedbackBanner})` }}
+            ></div>
+            <div
+              id="feedback-scrollable"
+              className="h-full overflow-y-scroll md:w-4/5 no-scrollbar"
+            >
+              <span className="absolute flex w-4/5 gap-3 pt-6 pl-6 bg-white max-md:p-4 max-sm:py-0">
+                <h1 className="z-10 text-[#334462] font-bold text-5xl max-lg:text-3xl max-sm:text-xl max-[425px]:text-lg m-0">
+                  <span className="text-[#F6CE15] font-semibold pr-3">
+                    Client
+                  </span>
+                  Feedback
+                </h1>
+              </span>
+              {/*client feedback list*/}
+              <div className="block">
+                <div className="pt-24 max-sm:pt-12">
+                  {feedbacks.map((feedback, index) => (
+                    <div key={index} className="mb-6">
+                      <span className="flex items-center gap-3 px-3">
+                        <img
+                          className="w-[60px] max-md:w-[30px] aspect-square object-cover"
+                          src={feedback[0]} // Image source
+                          alt={`feedback-company-${index}`}
+                        />
+                        <h5 className="m-0 font-semibold max-md:text-sm max-sm:text-xs">
+                          {feedback[1]} {/* Feedback company name */}
+                        </h5>
+                        <span className="flex gap-1">
+                          {Array.from(
+                            { length: feedback[2] },
+                            (_, starIndex) => (
+                              <svg
+                                key={starIndex}
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="#faca15"
+                                className="bi bi-star-fill w-[16px]"
+                                viewBox="0 0 16 16"
+                              >
+                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                              </svg>
+                            )
+                          )}
+                        </span>
+                      </span>
+                      <p className="p-3 text-justify max-md:text-sm max-sm:text-xs">
+                        {feedback[3]} {/* Feedback text */}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="flex items-center md:sticky bottom-5 justify-evenly max-md:justify-center">
+                  {/*buttons on bottom*/}
+                  <button
+                    onClick={scrollDown}
+                    className="bg-white border-2 border-black rounded-full max-md:hidden"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      className="bi bi-arrow-down-short h-[20px] w-[20px] text-black"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    data-modal-target="default-modal"
+                    data-modal-toggle="default-modal"
+                    className="md:absolute px-4 py-2 text-sm bg-[#334462] text-white rounded-lg right-5"
+                  >
+                    Add your feedback
+                  </button>
+                </div>
+              </div>
+              <span className="h-0 m-0 max-md:hidden" ref={feedbackEnd}></span>
+            </div>
+          </div>
+        </div>
+      </ScrollAnimation>
+      {/*Modal for Adding Feedbacks*/}
+      <div
+        id="default-modal"
+        tabIndex="-1"
+        aria-hidden="true"
+        className="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+      >
+        <div className="relative w-full max-w-2xl max-h-full p-4">
+          {/*Modal content*/}
+          <div className="relative bg-white rounded-lg shadow">
+            {/*Modal header*/}
+            <div className="flex items-center justify-between p-1 border-b rounded-t md:p-5">
+              <button
+                type="button"
+                className="inline-flex items-center justify-center w-8 h-8 text-sm text-gray-400 bg-transparent rounded-lg hover:bg-gray-200 hover:text-gray-900 ms-auto"
+                data-modal-hide="default-modal"
+              >
+                <svg
+                  className="w-3 h-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 14"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                  />
+                </svg>
+                <span className="sr-only">Close modal</span>
+              </button>
+            </div>
+            {/*Modal body*/}
+            <div className="p-4 space-y-4 md:p-5">
+              <div className="space-y-6">
+                <div className="flex items-center gap-6">
+                  <input
+                    type="file"
+                    className="hidden"
+                    name="img-selecter"
+                    id="img-selecter"
+                  ></input>
+                  <label
+                    htmlFor="img-selecter"
+                    className="cursor-pointer w-[50px] aspect-square rounded-full bg-[#006E8A17] flex justify-center items-center"
+                  >
+                    <img
+                      className="w-[32px] mb-1"
+                      src={camera_icon}
+                      alt="company-logo"
+                    ></img>
+                  </label>
+                  <div className="block">
+                    <label htmlFor="img-selecter" className="text-sm font-semibold "> Your company logo</label>
+                  </div>
+                </div>
+                <div>
+                  <div className="block mb-2">
+                    <label
+                      htmlFor="company_name"
+                      className="block mb-2 text-sm font-medium text-gray-900"
+                    >
+                      Company name
+                    </label>
+                    <input
+                      type="text"
+                      id="company_name"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      required
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div className="block mb-2">
+                    <label
+                      htmlFor="feedback"
+                      className="block mb-2 text-sm font-medium text-gray-900"
+                    >
+                      Your feedback
+                    </label>
+                    <textarea
+                      id="feedback"
+                      rows="4"
+                      className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                    ></textarea>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex items-center justify-end gap-2">
+                    <StarRating onRatingChange={handleRatingChange} />
+                    <p className="hidden">{rating}</p>
+                  </div>
+                </div>
+                <div className="flex justify-center w-full">
+                  <button className=" px-4 py-2 text-sm bg-[#334462] text-white rounded-lg">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
