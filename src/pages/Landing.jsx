@@ -229,7 +229,7 @@ function Landing() {
           style={{ backgroundImage: `url(${carouselImages[currentBanner]})` }}
         >
           <div className="bg-[#000000D4] h-full absolute xl:-top-[10dvh] max-xl:relative max-xl:w-full xl:w-5/6 flex justify-center items-end flex-col p-6">
-            <ScrollAnimation animateIn="headShake">
+            <ScrollAnimation animateIn="fadeIn" delay={300}>
               <p className="text-justify text-white lh-lg max-md:text-sm">
                 Welcome to SL Chop Shop, your trusted destination for
                 professional car repair and maintenance services. With years of
