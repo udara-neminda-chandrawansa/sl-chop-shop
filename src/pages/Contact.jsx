@@ -123,7 +123,7 @@ function Contact() {
               <p>+94 77 976 7127</p>
             </div>
           </div>
-          <span className="flex flex-col items-center justify-center gap-6">
+          <span className="flex flex-col items-center justify-center gap-6 px-6">
             <p className="text-center md:w-2/3 lh-lg max-md:text-sm">
               We’d love to hear from you! Whether you have a question, need a
               consultation, or want to schedule a fitting, the team at SL Chop
