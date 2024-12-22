@@ -337,17 +337,17 @@ function Landing() {
           ></iframe>
           {/*contact us*/}
           <div className="bg-[#00000008] w-1/3 max-lg:w-full py-6 px-6 flex flex-col justify-center gap-12 items-center text-center text-sm">
-            <div className="flex items-center justify-between w-full text-end max-lg:flex-col">
+            <div className="flex items-center justify-between w-full lg:text-end max-lg:flex-col">
               <img src={email} alt="" className="w-20"/>
 
               <p>hello@SLCHOPSHOP.com</p>
             </div>
-            <div className="flex items-center justify-between w-full text-end max-lg:flex-col">
+            <div className="flex items-center justify-between w-full lg:text-end max-lg:flex-col">
               <img src={location} alt=""  className="w-20"/>
 
               <p> SL Chop shop, Katugasthota, Kandy, Sri lanka, 21120</p>
             </div>
-            <div className="flex items-center justify-between w-full text-end max-lg:flex-col">
+            <div className="flex items-center justify-between w-full lg:text-end max-lg:flex-col">
               <img src={call} alt=""  className="w-20"/>
 
               <p>+94 77 976 7127</p>

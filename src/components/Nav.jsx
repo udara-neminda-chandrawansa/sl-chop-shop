@@ -129,77 +129,68 @@ function Nav({ inLanding }) {
             </div>
             <div className="modal-body">
               <ul className="flex flex-col items-center justify-start h-full gap-6 font-medium">
-                <Link href="/" className="w-full text-white no-underline">
-                  <li
-                    className="flex items-center justify-center w-full text-black cursor-pointer text-nowrap max-lg:text-sm"
-                    data-coreui-dismiss="modal"
-                  >
+                <li
+                  className="flex items-center justify-center w-full text-black cursor-pointer text-nowrap max-lg:text-sm"
+                  data-coreui-dismiss="modal"
+                >
+                  <Link href="/" className="no-underline">
                     Home
-                  </li>
-                </Link>
-                <Link href="/about" className="w-full text-white no-underline">
-                  <li
-                    className="flex items-center justify-center w-full text-black cursor-pointer text-nowrap max-lg:text-sm"
-                    data-coreui-dismiss="modal"
-                  >
+                  </Link>
+                </li>
+
+                <li
+                  className="flex items-center justify-center w-full text-black cursor-pointer text-nowrap max-lg:text-sm"
+                  data-coreui-dismiss="modal"
+                >
+                  <Link href="/about" className="no-underline ">
                     About Us
-                  </li>
-                </Link>
-                <Link
-                  href="/contact"
-                  className="w-full text-white no-underline"
+                  </Link>
+                </li>
+
+                <li
+                  className="flex items-center justify-center w-full text-black cursor-pointer text-nowrap max-lg:text-sm"
+                  data-coreui-dismiss="modal"
                 >
-                  <li
-                    className="flex items-center justify-center w-full text-black cursor-pointer text-nowrap max-lg:text-sm"
-                    data-coreui-dismiss="modal"
-                  >
+                  <Link href="/contact" className="no-underline">
                     Contact Us
-                  </li>
-                </Link>
-                <Link
-                  href="/services"
-                  className="w-full text-white no-underline"
+                  </Link>
+                </li>
+
+                <li
+                  className="flex items-center justify-center w-full text-black cursor-pointer text-nowrap max-lg:text-sm"
+                  data-coreui-dismiss="modal"
                 >
-                  <li
-                    className="flex items-center justify-center w-full text-black cursor-pointer text-nowrap max-lg:text-sm"
-                    data-coreui-dismiss="modal"
-                  >
+                  <Link href="/services" className="no-underline ">
                     Our Services
-                  </li>
-                </Link>
-                <Link
-                  href="/events"
-                  className="w-full text-white no-underline"
+                  </Link>
+                </li>
+
+                <li
+                  className="flex items-center justify-center w-full text-black cursor-pointer text-nowrap max-lg:text-sm"
+                  data-coreui-dismiss="modal"
                 >
-                  <li
-                    className="flex items-center justify-center w-full text-black cursor-pointer text-nowrap max-lg:text-sm"
-                    data-coreui-dismiss="modal"
-                  >
+                  <Link href="/events" className="no-underline ">
                     Events
-                  </li>
-                </Link>
-                <Link
-                  href="/faq"
-                  className="w-full text-white no-underline"
+                  </Link>
+                </li>
+
+                <li
+                  className="flex items-center justify-center w-full text-black cursor-pointer text-nowrap max-lg:text-sm"
+                  data-coreui-dismiss="modal"
                 >
-                  <li
-                    className="flex items-center justify-center w-full text-black cursor-pointer text-nowrap max-lg:text-sm"
-                    data-coreui-dismiss="modal"
-                  >
+                  <Link href="/faq" className="no-underline ">
                     FAQs
-                  </li>
-                </Link>
-                <Link
-                  href="/news"
-                  className="w-full text-white no-underline"
+                  </Link>
+                </li>
+
+                <li
+                  className="flex items-center justify-center w-full text-black cursor-pointer text-nowrap max-lg:text-sm"
+                  data-coreui-dismiss="modal"
                 >
-                  <li
-                    className="flex items-center justify-center w-full text-black cursor-pointer text-nowrap max-lg:text-sm"
-                    data-coreui-dismiss="modal"
-                  >
+                  <Link href="/news" className="no-underline ">
                     News
-                  </li>
-                </Link>
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
