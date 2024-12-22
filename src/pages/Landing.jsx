@@ -11,7 +11,6 @@ import car_1 from "./../assets/Landing/car-1.png";
 import events_robot from "./../assets/Landing/events-robot.png";
 import event_1 from "./../assets/Events/event-1.png";
 
-import map from "./../assets/Contact/map.png";
 import email from "./../assets/Contact/email.png";
 import location from "./../assets/Contact/location.png";
 import call from "./../assets/Contact/call.png";
@@ -99,7 +98,7 @@ function Landing() {
         style={{ backgroundImage: `url(${banner})` }}
       >
         {/*Top layer (backdrop)*/}
-        <div className="absolute bottom-0 max-sm:w-0 sm:w-2/3 rounded-e-full h-full inset-0 bg-gradient-to-br from-[#000000D4] to-[#000000D4]"></div>
+        <div className="absolute bottom-0 max-sm:w-0 sm:w-3/5 rounded-e-full h-full inset-0 bg-gradient-to-br from-[#000000D4] to-[#000000D4]"></div>
         {/*left side*/}
         <div className="z-10 flex flex-col items-start justify-center w-2/3 gap-6 p-12 text-white max-sm:w-full max-md:p-6">
           <h1 className="text-3xl akatab">
@@ -197,7 +196,7 @@ function Landing() {
         <div className="h-[50dvh] bg-[#F6CE15] flex p-6 max-lg:flex-col max-lg:h-fit relative">
           <div className="absolute bottom-0 right-0 w-2/3 h-full bg-white rounded-tl-full max-lg:hidden"></div>
           <div className="lg:w-1/2">
-            <p className="text-left lg:w-1/2 lg:absolute lh-lg max-xl:text-justify max-md:text-sm">
+            <p className="text-justify lg:w-1/2 lg:absolute lh-lg max-md:text-sm">
               Welcome to SL Chop Shop, your trusted destination for professional
               car repair and maintenance services. With years of experience and
               a passion for automobiles, we are dedicated to keeping your
@@ -210,13 +209,11 @@ function Landing() {
             </p>
           </div>
           <div className="flex max-lg:justify-center">
-            <ScrollAnimation animateIn="headShake">
-              <img
-                src={vwbeetle}
-                alt="vwbeetle"
-                className="object-contain h-fit max-xl:h-full max-lg:h-[500px] max-md:h-[300px]"
-              />
-            </ScrollAnimation>
+            <img
+              src={vwbeetle}
+              alt="vwbeetle"
+              className="z-10 object-contain h-fit max-xl:h-full max-lg:h-[500px] max-md:h-[300px]"
+            />
           </div>
         </div>
       </ScrollAnimation>
@@ -299,34 +296,29 @@ function Landing() {
           </div>
           {/*bottom (cards)*/}
           <div className="grid grid-cols-4 gap-6 p-12 w-fit max-sm:w-full place-items-center max-md:p-6 max-md:grid-cols-2 max-sm:grid-cols-1">
-            <ScrollAnimation animateIn="wobble">
-              <EventCard
-                text={"2024 31 Night"}
-                url={"31-night"}
-                img={event_1}
-              ></EventCard>
-            </ScrollAnimation>
-            <ScrollAnimation animateIn="wobble" delay={100}>
-              <EventCard
-                text={"2024 31 Night"}
-                url={"31-night"}
-                img={event_1}
-              ></EventCard>
-            </ScrollAnimation>
-            <ScrollAnimation animateIn="wobble" delay={200}>
-              <EventCard
-                text={"2024 31 Night"}
-                url={"31-night"}
-                img={event_1}
-              ></EventCard>
-            </ScrollAnimation>
-            <ScrollAnimation animateIn="wobble" delay={300}>
-              <EventCard
-                text={"2024 31 Night"}
-                url={"31-night"}
-                img={event_1}
-              ></EventCard>
-            </ScrollAnimation>
+            <EventCard
+              text={"2024 31 Night"}
+              url={"31-night"}
+              img={event_1}
+            ></EventCard>
+
+            <EventCard
+              text={"2024 31 Night"}
+              url={"31-night"}
+              img={event_1}
+            ></EventCard>
+
+            <EventCard
+              text={"2024 31 Night"}
+              url={"31-night"}
+              img={event_1}
+            ></EventCard>
+
+            <EventCard
+              text={"2024 31 Night"}
+              url={"31-night"}
+              img={event_1}
+            ></EventCard>
           </div>
         </div>
       </ScrollAnimation>
@@ -334,27 +326,33 @@ function Landing() {
       <ScrollAnimation animateIn="fadeIn">
         <div className="flex flex-col gap-6 px-12 py-6 h-fit max-md:px-6">
           <h1 className="text-5xl text-center">Contact Us</h1>
-          <img src={map} alt="map" />
+          <div className="flex gap-6 max-lg:flex-col">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1978.668546318611!2d80.63388199018216!3d7.315977524442334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3676870517f09%3A0x9b666d4a8e5e5e67!2sSL%20CHOP%20SHOP!5e0!3m2!1sen!2slk!4v1734890205483!5m2!1sen!2slk"
+            style={{ border: "0px"}}
+            allowFullScreen=""
+            loading="lazy"
+            className="w-2/3 max-lg:w-full max-lg:h-[300px]"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
           {/*contact us*/}
-          <div className="bg-[#00000008] py-6 px-12 max-md:px-6 flex justify-center gap-12 max-lg:flex-col text-center">
-            <div className="flex flex-col items-center justify-center lg:w-1/3">
-              <ScrollAnimation animateIn="wobble">
-                <img src={email} alt="" />
-              </ScrollAnimation>
+          <div className="bg-[#00000008] w-1/3 max-lg:w-full py-6 px-6 flex flex-col justify-center gap-12 items-center text-center text-sm">
+            <div className="flex items-center justify-between w-full text-end max-lg:flex-col">
+              <img src={email} alt="" className="w-20"/>
+
               <p>hello@SLCHOPSHOP.com</p>
             </div>
-            <div className="flex flex-col items-center justify-center lg:w-1/3">
-              <ScrollAnimation animateIn="wobble">
-                <img src={location} alt="" />
-              </ScrollAnimation>
+            <div className="flex items-center justify-between w-full text-end max-lg:flex-col">
+              <img src={location} alt=""  className="w-20"/>
+
               <p> SL Chop shop, Katugasthota, Kandy, Sri lanka, 21120</p>
             </div>
-            <div className="flex flex-col items-center justify-center lg:w-1/3">
-              <ScrollAnimation animateIn="wobble">
-                <img src={call} alt="" />
-              </ScrollAnimation>
+            <div className="flex items-center justify-between w-full text-end max-lg:flex-col">
+              <img src={call} alt=""  className="w-20"/>
+
               <p>+94 77 976 7127</p>
             </div>
+          </div>
           </div>
           <span className="flex flex-col items-center justify-center gap-6">
             <p className="text-center md:w-2/3 lh-lg max-md:text-sm">
@@ -727,9 +725,7 @@ function Landing() {
       </div>
       {/*logo section*/}
       <div className="flex flex-col items-center justify-center gap-6 px-12 py-6 h-fit max-md:px-6">
-        <ScrollAnimation animateIn="wobble">
-          <img src={logo} alt="" />
-        </ScrollAnimation>
+        <img src={logo} alt="" />
         <div className="inline-flex">
           <h1 className="text-5xl text-center preahvihear max-md:text-3xl max-sm:text-xl">
             <span className="pontano text-8xl text-[#F6CE15] max-md:text-5xl max-sm:text-3xl">

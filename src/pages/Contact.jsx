@@ -1,7 +1,6 @@
 import ScrollAnimation from "react-animate-on-scroll";
 
 import banner from "./../assets/Contact/banner.png";
-import map from "./../assets/Contact/map.png";
 import email from "./../assets/Contact/email.png";
 import location from "./../assets/Contact/location.png";
 import call from "./../assets/Contact/call.png";
@@ -99,28 +98,34 @@ function Contact() {
       </div>
       {/*contact info*/}
       <ScrollAnimation animateIn="fadeIn">
-        <div className="flex flex-col gap-6 py-6 h-fit">
-          <h1 className="pl-6 text-5xl">Find Us</h1>
-          <img src={map} alt="map" />
-          {/*contact us*/}
-          <div className="bg-[#00000008] py-6 px-12 max-md:px-6 flex justify-center gap-12 max-lg:flex-col text-center">
-            <div className="flex flex-col items-center justify-center lg:w-1/3">
-              <ScrollAnimation animateIn="wobble">
-                <img src={email} alt="" />
-              </ScrollAnimation>
-              <p>hello@SLCHOPSHOP.com</p>
-            </div>
-            <div className="flex flex-col items-center justify-center lg:w-1/3">
-              <ScrollAnimation animateIn="wobble">
-                <img src={location} alt="" />
-              </ScrollAnimation>
-              <p> SL Chop shop, Katugasthota, Kandy, Sri lanka, 21120</p>
-            </div>
-            <div className="flex flex-col items-center justify-center lg:w-1/3">
-              <ScrollAnimation animateIn="wobble">
-                <img src={call} alt="" />
-              </ScrollAnimation>
-              <p>+94 77 976 7127</p>
+        <div className="flex flex-col gap-6 px-12 py-6 h-fit max-md:px-6">
+          <h1 className="text-5xl">Find Us</h1>
+          <div className="flex gap-6 max-lg:flex-col">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1978.668546318611!2d80.63388199018216!3d7.315977524442334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3676870517f09%3A0x9b666d4a8e5e5e67!2sSL%20CHOP%20SHOP!5e0!3m2!1sen!2slk!4v1734890205483!5m2!1sen!2slk"
+              style={{ border: "0px" }}
+              allowFullScreen=""
+              loading="lazy"
+              className="w-2/3 max-lg:w-full max-lg:h-[300px]"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+            {/*contact us*/}
+            <div className="bg-[#00000008] w-1/3 max-lg:w-full py-6 px-6 flex flex-col justify-center gap-12 items-center text-center text-sm">
+              <div className="flex items-center justify-between w-full text-end max-lg:flex-col">
+                <img src={email} alt="" className="w-20" />
+
+                <p>hello@SLCHOPSHOP.com</p>
+              </div>
+              <div className="flex items-center justify-between w-full text-end max-lg:flex-col">
+                <img src={location} alt="" className="w-20" />
+
+                <p> SL Chop shop, Katugasthota, Kandy, Sri lanka, 21120</p>
+              </div>
+              <div className="flex items-center justify-between w-full text-end max-lg:flex-col">
+                <img src={call} alt="" className="w-20" />
+
+                <p>+94 77 976 7127</p>
+              </div>
             </div>
           </div>
           <span className="flex flex-col items-center justify-center gap-6 px-6">
@@ -252,8 +257,7 @@ function Contact() {
                   required
                 />
               </div>
-             
-              
+
               <button
                 type="submit"
                 className="text-white bg-[#F6CE15] hover:bg-[#334462] focus:ring-4 focus:outline-none focus:ring-[#F6CE15] font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
